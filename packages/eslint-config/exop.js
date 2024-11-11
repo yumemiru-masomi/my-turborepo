@@ -4,12 +4,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [
-    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "turbo",
-  ],
+  extends: ["eslint:recommended", "prettier", "expo", "turbo"],
   globals: {
     React: true,
     JSX: true,
@@ -17,8 +12,9 @@ module.exports = {
   env: {
     node: true,
     browser: true,
+    "react-native/react-native": true,
   },
-  plugins: ["only-warn"],
+  plugins: ["only-warn", "react-native"],
   settings: {
     "import/resolver": {
       typescript: {
